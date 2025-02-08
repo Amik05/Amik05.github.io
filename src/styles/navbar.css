@@ -23,6 +23,21 @@ nav{
     border: solid;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    transition-duration: 0.4s;
+
+}
+
+.logo:hover {
+    border: solid;
+    border-color: gold;
+    background-color: white; /* Green */
+    color: goldenrod;
+}
+
+.logo:active {
+    background-color: yellow;
+    box-shadow: 0 5px #666;
+    transform: translateY(5px);
 }
 
 .navbar-button {
@@ -37,12 +52,9 @@ nav{
     border: solid;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    transition-duration: 0.4s;
 }
 
-.navbar-button {
-    transition-duration: 0.4s;
-  }
-  
 .navbar-button:hover {
     border: solid;
     border-color: darkred;
