@@ -1,12 +1,15 @@
 footer {
+    margin-top: 70px;
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
 }
 .contact {
     font-size: 24px;
-    padding-bottom: 0;
+    padding-bottom: 10px;
 }
 
-.socials {
+.socials-logo {
+    width: 40px;
+    margin-right: 10px;
 }
