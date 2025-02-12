@@ -27,6 +27,18 @@ nav{
 
 }
 
+.home {
+    font-weight: bold;
+}   
+
+.about {
+    font-weight: bold;
+}
+
+.projects {
+    font-weight: bold;
+}
+
 .logo:hover {
     border: solid;
     border-color: gold;
