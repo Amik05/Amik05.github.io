@@ -13,9 +13,12 @@
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-column-gap: 20px;
+    grid-row-gap: 30px;
     grid-area: content;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 footer{
@@ -23,20 +26,63 @@ footer{
     background-color: darkgrey;
 }
 
-.bio {
-    margin-left: 20px;
+.overview {
+    font-size: large;
+    padding-right: 100px;
 }
 
+
+
 .image {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-right: 20px;
-    
-}
-.avatar {
+    position: relative;
     width: 100%;
-    border-radius: 25px;
 }
+  
+.avatar {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    border-radius: 25px;
+
+}
+
+.github-link { 
+    width: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+}
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    background-color: black;
+}
+  
+.image:hover .overlay {
+    opacity: 75%;
+}
+
+
+
 
 /* @media(max-width: 900px){
     .container{
