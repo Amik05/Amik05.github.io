@@ -91,6 +91,11 @@ footer{
     border-bottom: solid;
 }
 
+.socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
 .text-box {
     font-size: 25px;
 }
