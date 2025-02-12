@@ -13,9 +13,12 @@
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-column-gap: 20px;
+    grid-row-gap: 30px;
     grid-area: content;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 footer{
@@ -23,14 +26,13 @@ footer{
     background-color: darkgrey;
 }
 
-.bio {
-    margin-left: 20px;
+.overview {
+    font-size: large;
+    padding-right: 100px;
 }
 
 .image {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-right: 20px;
+
     
 }
 .avatar {
