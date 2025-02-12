@@ -14,8 +14,11 @@
 main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    grid-column-gap: 80px;
     grid-area: content;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
 }
 
 footer{
@@ -23,15 +26,32 @@ footer{
     background-color: darkgrey;
 }
 
-.hobby {
-    display: grid;
-
-}
 
 .avatar {
     width: 100%;
-    border-radius: 25px;
+
 }
+.hobby {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    font-size: large;
+    transition: .5s;
+
+}
+
+.hobby:hover {
+    -ms-transform: scale(1.3); /* IE 9 */
+    -webkit-transform: scale(1.3); /* Safari 3-8 */
+    transform: scale(1.3); 
+}
+  
+.text-overview {
+    text-align: center;
+    padding: 10px 20px;
+}
+  
 
 /* @media(max-width: 900px){
     .container{
