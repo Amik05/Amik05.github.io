@@ -27,6 +27,7 @@ header {
     margin-left: 60px;
 }
 
+
 footer{
     grid-area: footer;
     background-color: darkgrey;
