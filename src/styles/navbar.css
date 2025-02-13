@@ -5,15 +5,16 @@ nav{
     justify-content: space-between;
     align-items: center;
     color: darkred;
-    padding: 20px;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .logo {
-    padding: 15px 25px;
+    padding: 12px 22px;
     font-weight: 800;
-    font-size: 25px;
+    font-size: 18px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -53,8 +54,8 @@ nav{
 }
 
 .navbar-button {
-    padding: 15px 25px;
-    font-size: 16px;
+    padding: 12px 22px;
+    font-size: 13px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
