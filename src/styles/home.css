@@ -22,7 +22,7 @@ body {
 main {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    grid-column-gap: 100px;
+    grid-column-gap: 120px;
     grid-row-gap: 100px;
     grid-area: content;
     margin-left: 60px;
@@ -96,7 +96,7 @@ textarea {
 
 .container {
     width: 100%;
-  }
+}
   
 .skills {
     text-align: right;

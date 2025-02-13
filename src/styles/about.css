@@ -13,20 +13,29 @@
 
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 80px;
+    
     grid-area: content;
     margin-left: 200px;
     margin-right: 200px;
-    margin-top: 50px;
+    margin-top: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 80px;
+}
+
+.description {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 35px;
 }
 
 header {
     grid-area: header;
     margin-left: 60px;
 }
-
 
 footer{
     grid-area: footer;
