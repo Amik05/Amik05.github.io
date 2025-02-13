@@ -104,12 +104,16 @@ textarea {
     padding-bottom: 10px;
     color: white;
 }
+
+.skills-container {
+   margin-top: 10px;
+}
   
-.html {width: 80%; background-color: #04AA6D;}
-.css {width: 70%; background-color: #2196F3;}
-.js {width: 60%; background-color: #f44336;}
-.c {width: 50%; background-color: #808080;}
-.cpp {width: 50%; background-color: #696967;}
+.html {width: 75%; background-color: #04AA6D;}
+.python {width: 50%; background-color: #2196F3;}
+.js {width: 40%; background-color: #f44336;}
+.c {width: 50%; background-color: #e78c25;}
+.git {width: 65%; background-color: #696967;}
 .scale {width: 100%; background-color: #808080; opacity: 50%;}
 /* @media(max-width: 900px){
     .container{
