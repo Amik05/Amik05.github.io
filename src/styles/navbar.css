@@ -6,8 +6,9 @@ nav{
     align-items: center;
     color: darkred;
     padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
     padding-bottom: 30px;
-    margin-bottom: 20px;
 }
 
 .logo {
