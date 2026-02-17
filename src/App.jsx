@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <h1>Personal Portfolio</h1>
+      <h2>Work in progress...</h2>
     </>
   );
 }
