@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "lucide-react": "^0.575.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-draggable": "^4.5.0",
+    "react-wavify": "^1.11.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

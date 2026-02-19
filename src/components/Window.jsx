@@ -5,10 +5,10 @@ const Window = ({ title, children, onClose }) => {
   const nodeRef = useRef(null);
 
   return (
-    <Draggable nodeRef={nodeRef} handle=".window-header">
+    <Draggable nodeRef={nodeRef} handle=".window-header" bounds="parent">
       <div
         ref={nodeRef}
-        className="absolute rounded-[1rem] border border-white/20 bg-zinc-900/70 px-3 py-2 shadow-2xl backdrop-blur-3xl backdrop-saturate-150 text-white/50"
+        className="absolute shadow-2xl rounded-lg overflow-hidden bg-black/40 dark:bg-black/50 backdrop-blur-xl border border-white/20 flex flex-col"
       >
         {/* Title bar */}
         <div className="window-header flex justify-between items-center cursor-move border-b">
