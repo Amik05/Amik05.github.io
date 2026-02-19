@@ -1,16 +1,27 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React, { useState } from "react";
+import Window from "./Window";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // 1. Create the 'Switch' (State)
+  const [isBioOpen, setIsBioOpen] = useState(false);
 
   return (
-    <>
-      <h1>Personal Portfolio</h1>
-      <h2>Work in progress...</h2>
-    </>
+    <div className="relative w-full h-screen bg-[#111111]">
+      {/* Button Icon to open window */}
+      <button
+        onClick={() => setIsBioOpen(true)}
+        className="text-2xl cursor-pointer transition-all duration-300 hover:scale-150"
+      >
+        🎒
+      </button>
+
+      {/* Window Opening Logic */}
+      {isBioOpen && (
+        <Window title="Bio" onClose={() => setIsBioOpen(false)}>
+          <p>Hi! This is my bio</p>
+        </Window>
+      )}
+    </div>
   );
 }
 
