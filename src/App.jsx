@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import Window from "./components/Window";
 import { User, Code, Mail, Ghost } from "lucide-react";
+import { DesktopWindow } from "./components/DesktopWindow";
+import { WaveEffect } from "./components/WaveEffect";
+import {
+  AboutContent,
+  ProjectsContent,
+  ContactContent,
+  OtherContent,
+} from "./components/windows";
 
 function App() {
+  const WINDOW_CONTENT = {
+    about: AboutContent,
+    projects: ProjectsContent,
+    contact: ContactContent,
+    other: OtherContent,
+  };
   // Blueprint
   const WINDOW_DEFS = [
     { id: "about", title: "about" },
     { id: "projects", title: "projects" },
     { id: "contact", title: "contact" },
-    { id: "???", title: "???" },
+    { id: "other", title: "other" },
   ];
 
   const [windows, setWindows] = useState([]);
@@ -40,16 +53,29 @@ function App() {
     });
   };
 
+  const closeWindow = (id) => {
+    setWindows((prev) => prev.filter((w) => w.id !== id));
+  };
+
+  const bringToFront = (id) => {
+    setWindows((prev) => {
+      const maxZ = Math.max(...prev.map((w) => w.zIndex), 0);
+      return prev.map((w) => (w.id === id ? { ...w, zIndex: maxZ + 1 } : w));
+    });
+  };
+
   return (
     <div
       className="relative min-h-screen bg-cover bg-right bg-no-repeat"
       style={{ backgroundImage: "url(nujabes.jpg" }}
     >
-      <div className="fixed inset-0 overflow-hidden">
+      {/* Wave Effect */}
+      <WaveEffect />
+      <div className="fixed inset-0 overflow-hidden select-none">
         {/* HOME MENU */}
-        <div className="absolute overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] max-w-[80vw] rounded-lg bg-black/50 backdrop-blur-xl border border-white/80 shadow-2xl flex flex-col">
+        <div className="absolute overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] max-w-[80vw] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80 shadow-2xl flex flex-col">
           {/* Title Bar */}
-          <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/30 backdrop-blur-md border-b border-white/80">
+          <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/30 backdrop-blur-md border-b-3 border-white/80">
             <span className="text-white font-semibold">home</span>
             <button className="text-white cursor-pointer rounded hover:bg-white/20 transition-all">
               [x]
@@ -57,7 +83,7 @@ function App() {
           </div>
 
           {/* Content Area */}
-          <div className="p-6 bg-black/20">
+          <div className="flex items-center justify-center bg-black/20 h-[600px] max-h-[80vh]">
             <div className="my-20 flex flex-col items-center gap-5">
               <h1 className="text-5xl text-white">hi! i'm amir</h1>
               <h2 className="text-xl text-white">developer | cs @ sfu</h2>
@@ -95,7 +121,7 @@ function App() {
                   <p className="font-medium">contact</p>
                 </button>
                 <button
-                  onClick={() => openWindow("???")}
+                  onClick={() => openWindow("other")}
                   className="group flex flex-col items-center gap-2 px-4 py-3 text-white/90 hover:scale-105 transition-all"
                 >
                   <Ghost
@@ -110,33 +136,22 @@ function App() {
         </div>
 
         {/* Render Windows */}
-        {windows.map((w) => (
-          <div
-            key={w.id}
-            className="absolute rounded-lg overflow-hidden rounded-lg bg-black/50 backdrop-blur-xl border border-white/80 shadow-2xl flex flex-col"
-            style={{
-              left: w.position.x,
-              top: w.position.y,
-              width: 420,
-              maxWidth: "90vw",
-              maxHeight: "85vh",
-              zIndex: w.zIndex,
-            }}
-          >
-            <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/30 backdrop-blur-md border-b border-white/80">
-              <span className="text-white font-semibold">{w.title}</span>
-              <button
-                // onClick={closeWindow}
-                className="text-white cursor-pointer rounded hover:bg-white/20 transition-all"
-              >
-                [x]
-              </button>
-            </div>
-            <div className="p-4 bg-black/20 text-gray-200 text-sm">
-              <p>content for {w.title} will go here.</p>
-            </div>
-          </div>
-        ))}
+        {windows.map((w) => {
+          const Content = WINDOW_CONTENT[w.id];
+          return (
+            <DesktopWindow
+              key={w.id}
+              title={w.title}
+              icon={w.icon}
+              initialPosition={w.position}
+              zIndex={w.zIndex}
+              onFocus={() => bringToFront(w.id)}
+              onClose={() => closeWindow(w.id)}
+            >
+              {Content ? <Content /> : null}
+            </DesktopWindow>
+          );
+        })}
       </div>
     </div>
   );
