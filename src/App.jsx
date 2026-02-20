@@ -87,6 +87,8 @@ function App() {
             <div className="my-20 flex flex-col items-center gap-5">
               <h1 className="text-5xl text-white">hi! i'm amir</h1>
               <h2 className="text-xl text-white">developer | cs @ sfu</h2>
+              <img className="w-50" src="rotatingCar.gif" alt="Rotating Car" />
+              <h2 className="text text-white">site under construction..</h2>
 
               {/* Navigation */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-10">
