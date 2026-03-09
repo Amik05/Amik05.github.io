@@ -1,14 +1,7 @@
 import Draggable from "react-draggable";
 import { useRef } from "react";
 
-const Window = ({
-  title,
-  onClose,
-  onFocus,
-  isFocused,
-  children,
-  initialPosition,
-}) => {
+const Window = ({ title, onClose, children, initialPosition }) => {
   const nodeRef = useRef(null);
   return (
     <Draggable
