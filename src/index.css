@@ -4,4 +4,11 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: monospace;
+
+  /* Background Image */
+  background-image: url(nujabes.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  min-height: 100vh;
 }
