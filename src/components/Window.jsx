@@ -1,7 +1,14 @@
 import Draggable from "react-draggable";
 import { useRef } from "react";
 
-const Window = ({ title, onClose, children, initialPosition }) => {
+const Window = ({
+  title,
+  onClose,
+  onFocus,
+  children,
+  initialPosition,
+  zIndex,
+}) => {
   const nodeRef = useRef(null);
   return (
     <Draggable
@@ -9,10 +16,13 @@ const Window = ({ title, onClose, children, initialPosition }) => {
       nodeRef={nodeRef}
       bounds="parent"
       defaultPosition={initialPosition ?? { x: 80, y: 60 }}
+      onStart={onFocus}
     >
       <div
+        onClick={onFocus}
         ref={nodeRef}
-        className="absolute w-[500px] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80"
+        className="absolute overflow-hidden w-[500px] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80"
+        style={{ zIndex }}
       >
         <div className="title-bar flex justify-between px-3 py-2 bg-black/30 border-b-3 border-white/80 cursor-grab">
           <span className="text-white font-semibold">{title}</span>

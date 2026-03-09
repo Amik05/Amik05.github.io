@@ -31,11 +31,8 @@ function App() {
       const offset = prev.length * 28;
 
       // Get the middle of the screen + custom offset
-      const centerX = window.innerWidth / 2 - 500;
+      const centerX = window.innerWidth / 2 - 400;
       const centerY = window.innerHeight / 2 - 400;
-
-      console.log(centerX);
-      console.log(centerY);
 
       return [
         ...prev,
@@ -49,8 +46,15 @@ function App() {
     });
   };
 
-  const closeWindow = (name) => {
-    setWindows((prev) => prev.filter((window) => window.id !== name));
+  const closeWindow = (id) => {
+    setWindows((prev) => prev.filter((w) => w.id !== id));
+  };
+
+  const bringToFront = (id) => {
+    setWindows((prev) => {
+      const maxZ = Math.max(...prev.map((w) => w.zIndex), 0);
+      return prev.map((w) => (w.id === id ? { ...w, zIndex: maxZ + 1 } : w));
+    });
   };
 
   return (
@@ -69,6 +73,8 @@ function App() {
               key={w.id}
               title={w.title}
               onClose={() => closeWindow(w.id)}
+              onFocus={() => bringToFront(w.id)}
+              zIndex={w.zIndex}
               initialPosition={w.position}
             >
               <p>{w.id} section ... </p>
