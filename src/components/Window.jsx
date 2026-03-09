@@ -21,7 +21,7 @@ const Window = ({
       <div
         onClick={onFocus}
         ref={nodeRef}
-        className="absolute overflow-hidden w-[500px] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80"
+        className="absolute overflow-hidden w-fit min-w-[300px] max-w-[800px] max-h-[600px] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80"
         style={{ zIndex }}
       >
         <div className="title-bar flex justify-between px-3 py-2 bg-black/30 border-b-3 border-white/80 cursor-grab">

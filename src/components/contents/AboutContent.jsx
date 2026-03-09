@@ -1,5 +1,13 @@
 const AboutContent = () => {
-  return <p className="text-white">About content goes here .............</p>;
+  return (
+    <div className="flex items-center mx-10 gap-10 border-b-2 border-white/80">
+      <img src="../src/assets/orange.png" alt="orange" className="w-50" />
+      <div className="mr-10 text-white flex flex-col gap-2">
+        <h1 className="text-3xl my-2">amir matianiu</h1>
+        <p>"learn everything, try everything"</p>
+      </div>
+    </div>
+  );
 };
 
 export default AboutContent;
