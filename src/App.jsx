@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import { WaveEffect } from "./components/WaveEffect";
+import WaveEffect from "./components/WaveEffect";
 import Window from "./components/Window";
 import HomeMenu from "./components/HomeMenu";
+import {
+  AboutContent,
+  ContactContent,
+  ProjectsContent,
+  OtherContent,
+} from "./components/contents";
 
 const WINDOWS_DEF = [
-  { id: "about", title: "about" },
-  { id: "projects", title: "projects" },
-  { id: "contact", title: "contact" },
-  { id: "other", title: "other" },
+  { id: "about", title: "about", content: AboutContent },
+  { id: "projects", title: "projects", content: ProjectsContent },
+  { id: "contact", title: "contact", content: ContactContent },
+  { id: "other", title: "other", content: OtherContent },
 ];
 
 function App() {
@@ -31,8 +37,8 @@ function App() {
       const offset = prev.length * 28;
 
       // Get the middle of the screen + custom offset
-      const centerX = window.innerWidth / 2 - 400;
-      const centerY = window.innerHeight / 2 - 400;
+      const centerX = window.innerWidth / 5;
+      const centerY = window.innerHeight / 7;
 
       return [
         ...prev,
@@ -68,6 +74,8 @@ function App() {
 
         {/* Windows */}
         {windows.map((w) => {
+          const def = WINDOWS_DEF.find((d) => d.id === w.id);
+
           return (
             <Window
               key={w.id}
@@ -77,7 +85,7 @@ function App() {
               zIndex={w.zIndex}
               initialPosition={w.position}
             >
-              <p>{w.id} section ... </p>
+              <def.content />
             </Window>
           );
         })}

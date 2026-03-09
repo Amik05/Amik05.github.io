@@ -1,6 +1,6 @@
 import Wave from "react-wavify";
 
-export function WaveEffect() {
+const WaveEffect = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 h-70 pointer-events-none z-0 overflow-hidden">
       <Wave
@@ -37,4 +37,6 @@ export function WaveEffect() {
       />
     </div>
   );
-}
+};
+
+export default WaveEffect;
