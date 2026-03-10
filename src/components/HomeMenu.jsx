@@ -3,7 +3,7 @@ const HomeMenu = ({ openWindow }) => {
   return (
     <div>
       {/* HOME MENU */}
-      <div className="absolute overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] max-w-[80vw] rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-sm dark:backdrop-blur-xl border-3 border-orange-400 dark:border-white/80 shadow-2xl flex flex-col">
+      <div className="absolute overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] max-w-[80vw] rounded-lg bg-white/85 dark:bg-black/50 backdrop-blur-sm dark:backdrop-blur-xl border-3 border-orange-400 dark:border-white/80 shadow-2xl flex flex-col">
         {/* Title Bar */}
         <div className="flex items-center justify-between gap-2 px-3 py-2 bg-black/70 backdrop-blur-md border-b-3 border-orange-400 dark:border-white/80">
           <span className="text-white font-semibold text-lg">home</span>
