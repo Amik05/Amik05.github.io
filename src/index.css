@@ -7,7 +7,7 @@ body {
   overflow: hidden;
   font-family: monospace;
   min-height: 100vh;
-  background-image: url(./assets/nujabesLight.jpg);
+  background-image: url(/nujabesLight.jpg);
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body {
 
 body.dark {
   /* Background Image */
-  background-image: url(./assets/nujabesDark.jpg);
+  background-image: url(/nujabesDark.jpg);
   background-color: darkslategrey;
   background-position: right;
 }
