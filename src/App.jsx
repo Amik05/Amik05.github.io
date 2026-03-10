@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Sparkles, Moon } from "lucide-react";
 import WaveEffect from "./components/WaveEffect";
 import Window from "./components/Window";
 import HomeMenu from "./components/HomeMenu";
@@ -18,16 +19,33 @@ const WINDOWS_DEF = [
 
 function App() {
   // Light/Dark mode
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+  );
 
   const toggleTheme = () => {
     setDarkMode((prev) => !prev);
     document.body.classList.toggle("dark");
   };
 
+  // Listen for theme changes
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // set initial class
     document.body.classList.toggle("dark", darkMode);
-  });
+
+    // listen for system theme changes
+    const handleChange = (e) => {
+      setDarkMode(e.matches);
+      document.body.classList.toggle("dark", e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    // cleanup listener on unmount
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   // Windows states
   const [windows, setWindows] = useState([]);
@@ -83,11 +101,14 @@ function App() {
       <div className="fixed inset-0 select-none">
         {/* Home Menu */}
         <HomeMenu openWindow={openWindow} />
-        <button
-          className="border-2 border-white/80 rounded-md p-2"
-          onClick={toggleTheme}
-        >
-          Toggle Theme
+
+        {/* Theme toggle */}
+        <button className="p-2 m-4" onClick={toggleTheme}>
+          {darkMode ? (
+            <Moon size={35} className="text-white" />
+          ) : (
+            <Sparkles size={35} className="text-black/70" />
+          )}
         </button>
 
         {/* Windows */}

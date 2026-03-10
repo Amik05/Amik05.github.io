@@ -4,7 +4,7 @@ const WaveEffect = ({ darkMode }) => {
   return (
     <div className="fixed bottom-0 left-0 right-0 h-70 pointer-events-none z-0 overflow-hidden">
       <Wave
-        fill={darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 217, 0, 0.34)"}
+        fill={darkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 179, 0, 0.3)"}
         paused={false}
         options={{
           height: 30,
@@ -20,7 +20,7 @@ const WaveEffect = ({ darkMode }) => {
         }}
       />
       <Wave
-        fill={darkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(187, 57, 6, 0.35)"}
+        fill={darkMode ? "rgba(0, 0, 0, 0.5)" : "rgba(187, 57, 6, 0.3)"}
         paused={false}
         options={{
           height: 25,

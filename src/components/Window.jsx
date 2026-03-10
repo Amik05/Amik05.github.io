@@ -21,10 +21,10 @@ const Window = ({
       <div
         onClick={onFocus}
         ref={nodeRef}
-        className="absolute overflow-hidden w-fit min-w-[300px] max-w-[800px] max-h-[600px] rounded-lg bg-black/50 backdrop-blur-xl border-3 border-white/80"
+        className="absolute overflow-hidden w-fit min-w-[300px] max-w-[800px] max-h-[600px] rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-sm dark:backdrop-blur-xl border-3 border-orange-400 dark:border-white/80 border-3"
         style={{ zIndex }}
       >
-        <div className="title-bar flex justify-between px-3 py-2 bg-black/30 border-b-3 border-white/80 cursor-grab">
+        <div className="title-bar flex justify-between px-3 py-2 bg-black/70 border-b-3 border-orange-400 dark:border-white/80 cursor-grab">
           <span className="text-white font-semibold">{title}</span>
           <button
             onClick={onClose}
@@ -33,7 +33,7 @@ const Window = ({
             [x]
           </button>
         </div>
-        <div className="p-4 text-white">{children}</div>
+        <div>{children}</div>
       </div>
     </Draggable>
   );
