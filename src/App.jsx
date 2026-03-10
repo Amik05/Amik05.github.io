@@ -68,7 +68,7 @@ function App() {
 
       // Get the middle of the screen + custom offset
       const centerX = window.innerWidth / 5;
-      const centerY = window.innerHeight / 7;
+      const centerY = window.innerHeight / 25;
 
       return [
         ...prev,
