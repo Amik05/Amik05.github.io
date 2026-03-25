@@ -117,13 +117,12 @@ function App() {
         <HomeMenu openWindow={openWindow} />
 
         {/* Theme toggle */}
-        <button className="p-2 m-4" onClick={toggleTheme}>
-          {darkMode ? (
-            <Moon size={35} className="text-white" />
-          ) : (
-            <Sparkles size={35} className="text-black/70" />
-          )}
-        </button>
+        <img
+          onClick={toggleTheme}
+          src={darkMode ? "/apple.png" : "/orange.png"}
+          alt="fruit theme toggle"
+          className="w-17 h-17 dark:p-1 m-2 cursor-pointer shadow-xl rounded-xl"
+        />
 
         {/* Audio */}
         <div className="fixed bottom-0 right-0">
