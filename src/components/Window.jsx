@@ -33,7 +33,7 @@ const Window = ({
             [x]
           </button>
         </div>
-        <div>{children}</div>
+        <div className="overflow-y-auto max-h-[550px]">{children}</div>
       </div>
     </Draggable>
   );
