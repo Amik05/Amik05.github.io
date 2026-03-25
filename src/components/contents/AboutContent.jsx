@@ -10,7 +10,7 @@ const AboutContent = () => {
       </div>
       <div className="my-8">
         <p>hi! i'am amir, a CS student from vancouver</p>
-        <p>my goal in life is to become than i was yesterday</p>
+        <p>my goal in life is to become better than i was yesterday</p>
       </div>
     </div>
   );
