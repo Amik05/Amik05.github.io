@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Sparkles, Moon } from "lucide-react";
 import WaveEffect from "./components/WaveEffect";
 import Window from "./components/Window";
@@ -18,6 +18,18 @@ const WINDOWS_DEF = [
 ];
 
 function App() {
+  const audioRef = useRef(null);
+  const [playing, setPlaying] = useState(false);
+
+  const playMusic = () => {
+    if (playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setPlaying(!playing);
+    audioRef.current.currentTime = 0.3;
+  };
   // Light/Dark mode
   const [darkMode, setDarkMode] = useState(
     window.matchMedia("(prefers-color-scheme: dark)").matches,
@@ -47,7 +59,7 @@ function App() {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Windows states
+  // Windows states ---------------------------------------------------------------------
   const [windows, setWindows] = useState([]);
 
   const openWindow = (id) => {
@@ -93,6 +105,8 @@ function App() {
     });
   };
 
+  // Main ---------------------------------------------------------------------------------
+
   return (
     <div className={`relative min-h-screen ${darkMode ? "dark" : ""}`}>
       {/* Wave Effect */}
@@ -110,6 +124,17 @@ function App() {
             <Sparkles size={35} className="text-black/70" />
           )}
         </button>
+
+        {/* Audio */}
+        <div className="fixed bottom-0 right-0">
+          <audio ref={audioRef} src="/world_without_words.mp3" loop />
+          <img
+            className="hue-rotate-200 brightness-75 saturate-150 opacity-80 dark:opacity-100 w-32 h-32 m-6 transition-opacity duration-500"
+            src={playing ? "/vinyl_spinning.gif" : "/vinyl.png"}
+            alt="vinyl"
+            onClick={playMusic}
+          />
+        </div>
 
         {/* Windows */}
         {windows.map((w) => {
